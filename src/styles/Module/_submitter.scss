@@ -1,0 +1,19 @@
+#submitter {
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid $lightPink;
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transform-origin: center center;
+    transition: 0.3s;
+    color: $pink;
+    font-weight: 600;
+
+    &:active {
+        transform: scale(.911) translateY(-52%);
+    }
+}

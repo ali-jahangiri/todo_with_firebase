@@ -1,0 +1,26 @@
+.input {
+    border-radius: 5px;
+    padding: 1rem 0.9rem;
+    border: 2px solid $cream;
+    width: 100%;
+    font-size: 1.1rem;
+
+    &::placeholder {
+        color: $grey;
+    }
+
+    &--alert {
+        animation: alert 0.9s alternate;
+
+    }
+}
+
+@keyframes alert {
+    from {
+        border-color: red;
+    }
+
+    to {
+        border-color: $cream;
+    }
+}

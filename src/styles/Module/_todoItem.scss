@@ -1,0 +1,46 @@
+.todo {
+    border: 2px solid $lightPink;
+    border-radius: 6px;
+    padding: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    margin: 1rem 0;
+
+    &:hover &__controller {
+        p {
+            opacity: 1;
+        }
+    }
+
+    &__controller {
+        display: flex;
+        font-size: 1.6rem;
+        user-select: none;
+
+        p {
+            cursor: pointer;
+            margin: 0 0.5rem;
+            padding: 0.5rem;
+            transition: 0.5s ease-in-out;
+            opacity: 0.2;
+
+            &:hover {
+                text-shadow: 0 0 20px $pink;
+            }
+
+            &:last-child {
+                &:hover {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            &:first-child {
+                &:hover {
+                    transform: translateX(-5px);
+                }
+            }
+        }
+    }
+}
