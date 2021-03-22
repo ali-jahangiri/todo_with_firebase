@@ -7,11 +7,15 @@
 
     &::placeholder {
         color: $grey;
+        transition: 0.3s;
     }
 
     &--alert {
         animation: alert 0.9s alternate;
 
+        &::placeholder {
+            color: red;
+        }
     }
 }
 

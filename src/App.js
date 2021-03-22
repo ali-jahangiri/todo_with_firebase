@@ -1,22 +1,31 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useState } from "react";
 
+// components
 import Input from "./components/Input";
-import reducer from "./store/reducer";
+import Loading from "./components/Loading";
+import TaskDirectory from "./components/TaskDirectory";
 
-import { addTodo } from "./store/actions";
-import TodoItem from "./components/TodoItem";
+import db from "./firebase";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, []);
-  const submitHandler = (payload) => dispatch(addTodo(payload));
+  const [task, setTask] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setLoading(true);
+    db.collection("todo")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setTask(snapshot.docs.map((doc) => doc.data()));
+        setLoading(false);
+      });
+  }, []);
   return (
     <div className="container">
       <h2>Hello there</h2>
-      <Input submitHandler={submitHandler} />
-      {state?.map((el) => {
-        return <TodoItem dispatcher={dispatch} key={el.id} {...el} />;
-      })}
+      <Input enable={loading} />
+      {loading && <Loading />}
+      <TaskDirectory tasks={task} />
     </div>
   );
 };
