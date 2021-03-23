@@ -1,0 +1,15 @@
+.emptytask {
+    text-align: center;
+    font-size: 1.3rem;
+    color: lighten($color : $grey, $amount: 25%);
+    font-weight: 700;
+    margin: 6rem 0;
+    @include fadeShow($isAlternate:false, $isInfinite:false);
+    animation-duration: 2s;
+
+    span {
+        text-decoration: underline;
+        color: $lightPink;
+        cursor: pointer;
+    }
+}

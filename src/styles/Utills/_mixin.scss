@@ -1,0 +1,21 @@
+@mixin fadeShow($isAlternate, $isInfinite) {
+    animation: blinking 0.9s;
+
+    @if $isInfinite {
+        animation-iteration-count: infinite;
+    }
+
+    @if $isAlternate==true {
+        animation-direction: alternate;
+    }
+
+    @else {
+        animation-direction: normal;
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+    }
+}

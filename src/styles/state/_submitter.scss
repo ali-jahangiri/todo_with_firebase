@@ -1,0 +1,10 @@
+#submitter {
+    &:active {
+        transform: scale(.911) translateY(-52%);
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: auto;
+    }
+}

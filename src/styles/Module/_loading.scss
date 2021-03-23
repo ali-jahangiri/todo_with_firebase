@@ -1,0 +1,25 @@
+.loading {
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    color: $grey;
+    margin: 6rem 0;
+    opacity: 0;
+    animation: fade 0.3s forwards;
+
+    span {
+        @include fadeShow(true, $isInfinite : true);
+    }
+}
+
+
+
+@keyframes blinking {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

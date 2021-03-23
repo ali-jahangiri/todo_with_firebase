@@ -1,0 +1,15 @@
+.editor {
+    box-shadow: 0px 20px 20px -13.9px lighten($color : $pink, $amount: 85%);
+
+    &:focus {
+        transform: translateY(-20px);
+        animation: fadeBoxshadow 1.3s alternate infinite linear;
+    }
+}
+
+
+@keyframes fadeBoxshadow {
+    to {
+        box-shadow: 0px 20px 20px -13.9px lighten($color : $pink, $amount: 0%);
+    }
+}
