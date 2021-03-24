@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // components
 import Input from "./components/Input";
@@ -11,7 +11,7 @@ import createTask from "./Utils/createTask";
 const App = () => {
   const [task, setTask] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const inputRef = useRef();
   useEffect(() => {
     setLoading(true);
     db.collection("todo")
@@ -24,8 +24,12 @@ const App = () => {
   return (
     <div className="container">
       <h2>Hello there</h2>
-      <Input enable={loading} />
-      {loading ? <Loading /> : <TaskDirectory tasks={task} />}
+      <Input reference={inputRef} enable={loading} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <TaskDirectory inputRef={inputRef} tasks={task} />
+      )}
     </div>
   );
 };

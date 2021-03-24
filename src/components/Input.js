@@ -7,7 +7,7 @@ import Task from "../Utils/TaskConstructor";
 // decelerate timeout with that timer
 const withSelfClearTimeout = selfTimeout(1200);
 
-const Input = ({ enable }) => {
+const Input = ({ enable, reference }) => {
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
@@ -24,6 +24,7 @@ const Input = ({ enable }) => {
   return (
     <div className="header">
       <input
+        ref={reference}
         className={`input ${error ? "input--alert" : ""}`}
         value={text}
         onChange={({ target: { value } }) => setText(value)}

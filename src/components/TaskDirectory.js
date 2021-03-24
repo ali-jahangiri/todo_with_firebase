@@ -3,12 +3,12 @@ import TodoItem from "./TodoItem";
 
 import EmptyTask from "./EmptyTask";
 
-const TaskDirectory = ({ tasks }) => {
+const TaskDirectory = ({ tasks, inputRef }) => {
   const [currentEditItem, setCurrentEditItem] = useState(null);
   return (
     <>
       {!tasks.length ? (
-        <EmptyTask />
+        <EmptyTask inputRef={inputRef} />
       ) : (
         tasks.map((el, i) => (
           <TodoItem
